@@ -1,6 +1,7 @@
 var canvas;
 var player;
 var lasers = [];
+var particles = [];
 var spaceHeld = false;
 cooldown_fire = 5;
 var firingDelay = 0;
@@ -33,7 +34,7 @@ function draw() {
   Attack();
   Decreaser();
 
-
+  
 }
 
 function Decreaser() {
@@ -71,6 +72,14 @@ function LaserChecker() {
     // }
 
 } 
+
+  //       for (var i = particles.length - 1; i > 0; i--) {
+  //   particles[i].render();
+  //   particles[i].update();
+  //   if (particles[i].opacity <= 0) {
+  //     particles.splice(i, 1);
+  //   }
+  // }
 }
 
 function Laser(spos, angle, a, b, c) {
@@ -87,7 +96,7 @@ function Laser(spos, angle, a, b, c) {
     push();
     stroke(a, b, c);
     strokeWeight(6);
-    line(this.pos.x, this.pos.y, this.pos.x + this.vel.x * 2, this.pos.y + this.vel.y * 2);
+    line(this.pos.x, this.pos.y  * this.r, this.pos.x + this.vel.x * 2, this.pos.y + this.vel.y * 2);
     pop();
   }
 
@@ -120,11 +129,16 @@ function Laser(spos, angle, a, b, c) {
 function Attack() {
    if (spaceHeld   && firingDelay <= 0) {
     lasers.push(new Laser(player.pos, player.heading, 100, 100, 100));
+    lasers.push(new Laser(player.pos, player.heading + 0.2, 100, 100, 100));
     console.log("test");
     firingDelay = cooldown_fire;
+
+    for (var i = 0; i < 3; i++) {
+      particles.push(new Particle(createVector(player.pos.x + cos(player.heading) * player.r, player.pos.y + sin(player.heading) * player.r), player.heading + random(-PI / 2, PI / 2), 100, 200, 100));
+    }
 } 
 
-
+        
     //   for (var i = 0; i < 3; i++) {
     //   particles.push(new Particle(createVector(play.pos.x + cos(play.heading) * play.r, play.pos.y + sin(play.heading) * play.r), play.heading + random(-PI / 2, PI / 2), a, b, c));
     // }
@@ -158,15 +172,12 @@ function Attack() {
 function Player() {
 this.pos = createVector(width / 2, height / 2);
 this.heading = 0;
-this.xadd = false;
-this.xmin = false;
 this.ported = false;
 this.r = 20;
 this.maxspeed = 10;
 this.vel = createVector(0, 0);
 this.acc = createVector(0, 0);
 this.drive = 0;
-this.xmove = 0;
 this.rotation = 0;
 this.render = function() {
     push();
@@ -176,12 +187,14 @@ this.render = function() {
     rotate(this.heading + PI / 2);
     fill(100, 250, 100);
     beginShape();
-    vertex(0, 0);
-    vertex(-15, 30);
-    vertex(0, 25);
-    vertex(15, 30);
+    vertex(0, 10);
+    vertex(-15, 15);
+    vertex(0, -15);
+    vertex(15, 15);
     endShape();
     pop();
+
+
 }
 
 
@@ -291,3 +304,44 @@ function mousePressed() {
 function mouseReleased() {
   spaceHeld = false;
 }
+
+
+function Particle(spos, angle, a, b, c) {
+  this.pos = createVector(spos.x, spos.y);
+  this.vel = p5.Vector.fromAngle(angle);
+  this.vel.mult(random(1, 10));
+  this.h = random(100, 250);
+  this.lastPos = [];
+  this.opacity = 100;
+  this.rot = random(-PI / 15, PI / 15);
+
+  this.update = function() {
+    this.lastPos.push(createVector(this.pos.x, this.pos.y));
+    if (this.lastPos.length > 8) {
+      this.lastPos.splice(0, 1);
+    }
+    this.pos.add(this.vel);
+    this.vel.mult(0.7);
+    this.vel.rotate(this.rot);
+    this.opacity -= 5;
+  }
+  this.render = function() {
+    push();
+    colorMode(RGB);
+    strokeWeight(2);
+    for (var i = this.lastPos.length - 1; i > 0; i--) {
+     
+      stroke(a, b, c);
+      if (i === 0) {
+        line(this.lastPos[i].x, this.lastPos[i].y, this.pos.x, this.pos.y);
+      } else {
+        line(this.lastPos[i].x, this.lastPos[i].y, this.lastPos[i - 1].x, this.lastPos[i - 1].y);
+      }
+    }
+    stroke(150, 100, 255);
+    //stroke(this.h, 100, this.opacity);
+    //point(this.pos.x, this.pos.y);
+    pop();
+  }
+}
+
