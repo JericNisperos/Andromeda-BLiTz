@@ -13,12 +13,13 @@ var bgstars2 = [];
 var bg;
 var parallax = true;
 var pewpew;
-
+var ship1img;
 function preload() {
   pewpew = loadSound('img/pewpew.wav');
+  ship1img = loadImage('img/ship1.png');
 }
 function setup() {
-  // bg = loadImage("img/bg.jpg");
+  
   
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('sketch-holder');
