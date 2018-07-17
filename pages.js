@@ -3,6 +3,11 @@
   TwinklebgStars();
  }
 
+    for (var i = 0; i < bgstars2.length; i++) {
+    bgstars2[i].show();
+    bgstars2[i].r = random(4,5);
+  }
+
  if (page == 0) {
     push();
     textAlign(CENTER);

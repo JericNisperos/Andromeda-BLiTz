@@ -46,6 +46,23 @@ function keyPressed() {
     }
   }
 
+  if (key == '0') {
+    if (parallax) {
+    parallax = false;
+  } else {
+    parallax = true;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 }
 
 

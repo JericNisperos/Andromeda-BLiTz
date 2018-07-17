@@ -14,6 +14,9 @@ var bg;
 var parallax = true;
 var pewpew;
 var ship1img;
+
+  // <script language="javascript" type="text/javascript" src="lib/p5.play.js"></script>
+  // <script language="javascript" type="text/javascript" src="lib/p5.sound.js"></script>
 function preload() {
   // pewpew = loadSound('img/pewpew.wav');
 }
@@ -36,6 +39,8 @@ function setup() {
     bgstars2.push(new bgStars2());
   
   }
+
+  Console();
 }
 
 function draw() {
@@ -62,4 +67,8 @@ function Gradient(x, y, w, h, c1, c2) {
       line(x, i, x+w, i);
 }
 
+}
+
+function Console() {
+  console.log('type 0 to remove stars');
 }
