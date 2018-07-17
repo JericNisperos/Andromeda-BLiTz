@@ -8,6 +8,8 @@ var firingDelay = 0;
 var page = 0;
 var paused = false;
 var bgstars = [];
+var bgstars1 = [];
+var bgstars2 = [];
 var bg;
 
 
@@ -23,6 +25,16 @@ function setup() {
 
   for (var i = 0; i < 100; i++) {
     bgstars.push(new bgStars());
+
+  }
+  for (var i = 0; i < 100; i++) {
+    bgstars1.push(new bgStars1());
+  
+  }
+
+  for (var i = 0; i < 100; i++) {
+    bgstars2.push(new bgStars2());
+  
   }
 }
 

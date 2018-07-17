@@ -3,12 +3,14 @@ function keyPressed() {
     player.side(0.5);
     for(var i = 0; i < bgstars.length; i++) {
       bgstars[i].addx(-0.1);
+      bgstars1[i].addx(-0.05);
     }
   }
    else if (keyCode == LEFT_ARROW || key == 'A') {
     player.side(-0.5);
     for(var i = 0; i < bgstars.length; i++) {
       bgstars[i].addx(0.1);
+      bgstars1[i].addx(0.05);
     }
   }
 
@@ -17,6 +19,8 @@ function keyPressed() {
     for(var i = 0; i < bgstars.length; i++) {
       bgstars[i].addy(-0.2);
       bgstars[i].addx(-0.16);
+      bgstars1[i].addy(-0.1);
+      bgstars1[i].addx(-0.08);
     }
   }
    else if (keyCode == DOWN_ARROW || key == 'S') {
@@ -24,6 +28,8 @@ function keyPressed() {
    for(var i = 0; i < bgstars.length; i++) {
       bgstars[i].addy(0.2);
       bgstars[i].addx(-0.16);
+      bgstars1[i].addy(0.1);
+      bgstars1[i].addx(-0.08);
 
     }
   }
@@ -48,6 +54,7 @@ function keyReleased() {
     player.side(0);
     for(var i = 0; i < bgstars.length; i++) {
       bgstars[i].addx(0);
+      bgstars1[i].addx(0);
 
     }
   } 
@@ -56,6 +63,8 @@ function keyReleased() {
     for(var i = 0; i < bgstars.length; i++) {
       bgstars[i].addx(0);
       bgstars[i].addy(0);
+      bgstars1[i].addx(0);
+      bgstars1[i].addy(0);
 
     }
   }
