@@ -146,8 +146,5 @@ function TwinklebgStars() {
     bgstars1[i].edges();
     bgstars1[i].r = random(6, 7);
   }
-  	for (var i = 0; i < bgstars2.length; i++) {
-    bgstars2[i].show();
-    bgstars2[i].r = random(4,5);
-  }
+
 }

@@ -1,6 +1,6 @@
 
 function Player() {
-this.pos = createVector(width / 2, height / 1.2);
+this.pos = createVector(width / 2, height / 2);
 this.heading = 0;
 this.ported = false;
 this.r = 20;

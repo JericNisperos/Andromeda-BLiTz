@@ -11,7 +11,7 @@ var bgstars = [];
 var bgstars1 = [];
 var bgstars2 = [];
 var bg;
-var parallax = true;
+var parallax = false;
 var pewpew;
 var ship1img;
 
@@ -70,5 +70,5 @@ function Gradient(x, y, w, h, c1, c2) {
 }
 
 function Console() {
-  console.log('type 0 to remove stars');
+  console.log('Press 0 to remove Stars');
 }
