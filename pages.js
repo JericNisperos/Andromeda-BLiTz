@@ -17,7 +17,7 @@
     var r = h * 2;
     rect(width / 2, height / 2 , width / 1.1, height / 1.1, 25);
     fill(255);
-    text('Press START', width / 2, height / 2);
+    text('Press SPACE', width / 2, height / 2);
     pop();
     paused = false;
   } 
