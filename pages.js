@@ -1,7 +1,5 @@
  function Pages() {
-  //   for (var i = 0; i < bgstars.length; i++) {
-  //   bgstars[i].show();
-  // }
+  TwinklebgStars();
  
 
  if (page == 0) {

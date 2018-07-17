@@ -14,23 +14,24 @@ var bg;
 
 
 function setup() {
-  bg = loadImage("img/bg.jpg");
+  // bg = loadImage("img/bg.jpg");
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('sketch-holder');
   background(0);
 
   player = new Player();
 
-  // for (var i = 0; i < 20; i++) {
-    // bgstars.push(new bgStars());
-  // }
+  for (var i = 0; i < 100; i++) {
+    bgstars.push(new bgStars());
+  }
 }
 
 function draw() {
 
 
   canvas = createCanvas(windowWidth, windowHeight);
-  background(bg);
+  background(0);
+  // background(bg);
   Pages();
 
 

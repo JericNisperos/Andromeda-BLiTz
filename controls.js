@@ -1,19 +1,34 @@
 function keyPressed() {
  if (keyCode == RIGHT_ARROW || key == 'D') {
     player.side(0.5);
+    for(var i = 0; i < bgstars.length; i++) {
+      bgstars[i].addx(-0.1);
+    }
   }
    else if (keyCode == LEFT_ARROW || key == 'A') {
     player.side(-0.5);
+    for(var i = 0; i < bgstars.length; i++) {
+      bgstars[i].addx(0.1);
+    }
   }
 
   if (keyCode == UP_ARROW || key == 'W') {
     player.setRotation(0.5);
+    for(var i = 0; i < bgstars.length; i++) {
+      bgstars[i].addy(-0.2);
+      bgstars[i].addx(-0.16);
+    }
   }
    else if (keyCode == DOWN_ARROW || key == 'S') {
    player.setRotation(-0.5);
+   for(var i = 0; i < bgstars.length; i++) {
+      bgstars[i].addy(0.2);
+      bgstars[i].addx(-0.16);
+
+    }
   }
 
-  if (key == ' ') {
+  if (key == ' ' && page == 0) {
     page = 1;
   }
 
@@ -28,29 +43,21 @@ function keyPressed() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function keyReleased() {
     if (keyCode == LEFT_ARROW || keyCode == RIGHT_ARROW || key == 'D' || key == 'A') {
     player.side(0);
+    for(var i = 0; i < bgstars.length; i++) {
+      bgstars[i].addx(0);
 
+    }
   } 
   if (keyCode == UP_ARROW || keyCode == DOWN_ARROW || key == 'W' || key == 'S') {
     player.setRotation(0);
+    for(var i = 0; i < bgstars.length; i++) {
+      bgstars[i].addx(0);
+      bgstars[i].addy(0);
 
+    }
   }
 }
 
