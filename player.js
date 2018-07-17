@@ -77,7 +77,14 @@ this.edges = function() {
   }
 
 
-
+this.hits = function(rocks) {
+    var d = dist(this.pos.x, this.pos.y, rocks.pos.x, rocks.pos.y);
+    if (d < this.r + rocks.r) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 
 

@@ -2,6 +2,7 @@ var canvas;
 var player;
 var lasers = [];
 var particles = [];
+var rocks = [];
 var spaceHeld = false;
 cooldown_fire = 5;
 var firingDelay = 0;
@@ -14,6 +15,8 @@ var bg;
 var parallax = false;
 var pewpew;
 var ship1img;
+var life = 100;
+var score = 100;
 
   // <script language="javascript" type="text/javascript" src="lib/p5.play.js"></script>
   // <script language="javascript" type="text/javascript" src="lib/p5.sound.js"></script>
@@ -38,6 +41,10 @@ function setup() {
   for (var i = 0; i < 100; i++) {
     bgstars2.push(new bgStars2());
   
+  }
+      for (var i = 0; i < 50; i++) {
+    rocks.push(new Rocks());
+
   }
 
   Console();

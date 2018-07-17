@@ -35,6 +35,7 @@
   player.turn();
   player.update();
   LaserChecker();
+  RockChecker();
   Attack();
   Decreaser();
 

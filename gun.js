@@ -7,25 +7,25 @@ function LaserChecker() {
       lasers.splice(i, 1);
     } 
 
-    //  else {
-    //   for (var j = rocks.length - 1; j >= 0; j--) {
-    //     if (lasers[i].hits(rocks[j])) {
-    //       if (life >= 0) {
-    //       score += random(100);
-    //     }
-    //       for (var k = 0; k < 3; k++) {
-    //         particleskill.push(new ParticleKill(lasers[i].pos, lasers[i].angle + PI + random(-PI / 2, PI / 2), 255, 255, 255));
-    //       }
-    //       if (rocks[j].r > 20) {
-    //         var newRocks = rocks[j].breakup();
-    //         rocks = rocks.concat(newRocks);
-    //       }
-    //       rocks.splice(j, 1);
-    //       lasers.splice(i, 1);
-    //       break;
-    //     }
-    //   }
-    // }
+     else {
+      for (var j = rocks.length - 1; j >= 0; j--) {
+        if (lasers[i].hits(rocks[j])) {
+          if (life >= 0) {
+          score += random(100);
+        }
+          // for (var k = 0; k < 3; k++) {
+          //   particleskill.push(new ParticleKill(lasers[i].pos, lasers[i].angle + PI + random(-PI / 2, PI / 2), 255, 255, 255));
+          // }
+          if (rocks[j].r > 20) {
+            var newRocks = rocks[j].breakup();
+            rocks = rocks.concat(newRocks);
+          }
+          rocks.splice(j, 1);
+          lasers.splice(i, 1);
+          break;
+        }
+      }
+    }
 
 } 
 
@@ -56,14 +56,14 @@ function Laser(spos, angle, a, b, c) {
     pop();
   }
 
-  // this.hits = function(rock) {
-  //   var d = dist(this.pos.x, this.pos.y, rock.pos.x, rock.pos.y);
-  //   if (d < rock.r) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  this.hits = function(rock) {
+    var d = dist(this.pos.x, this.pos.y, rock.pos.x, rock.pos.y);
+    if (d < rock.r) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   this.offscreen = function() {
     if (this.pos.x > width || this.pos.x < 0) {
