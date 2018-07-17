@@ -54,6 +54,10 @@ function keyPressed() {
   }
 }
 
+    if (key == 'M') {
+      rocks.splice(0, rocks.length);
+}
+
 
 
 

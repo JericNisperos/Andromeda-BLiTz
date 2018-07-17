@@ -9,6 +9,9 @@ this.vel = createVector(0, 0);
 this.acc = createVector(0, 0);
 this.drive = 0;
 this.rotation = 0;
+this.speed = 0.3;
+this.posx = 20;
+this.posy = 0;
 this.render = function() {
     Ship1();
 
@@ -20,10 +23,10 @@ this.render = function() {
 
 this.boost = function(a, b) {
     var force = p5.Vector.fromAngle(0);
-    force.mult(0.5 * a);
+    force.mult(this.speed * a);
     this.vel.add(force);
     force = p5.Vector.fromAngle(0 - (PI * b));
-    force.mult(0.5 * abs(b));
+    force.mult(this.speed * abs(b));
     this.vel.add(force);
   }
 

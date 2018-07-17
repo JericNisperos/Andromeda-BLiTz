@@ -38,12 +38,17 @@ function LaserChecker() {
   }
 }
 
-function Laser(spos, angle, a, b, c) {
-  this.pos = createVector(spos.x, spos.y);
+function Laser(spos, angle, a, b, c, z) {
+  if (z == 'CENTER') {
+      this.pos = createVector(spos.x, spos.y);
+  } else if (z == 'SIDERIGHT') {
+  this.pos = createVector(spos.x - 30 * cos(angle - 68), spos.y - 30 * sin(angle - 68)); 
+} else if (z == 'SIDELEFT') {
+  this.pos = createVector(spos.x - 30 * cos(angle + 68), spos.y - 30 * sin(angle + 68));
+}
   this.vel = p5.Vector.fromAngle(angle);
   this.vel.mult(10);
-  this.h = random(255);
-  this.angle = angle;
+  this.heading = 0;
 
   this.update = function() {
     this.pos.add(this.vel);
@@ -52,7 +57,7 @@ function Laser(spos, angle, a, b, c) {
     push();
     stroke(a, b, c);
     strokeWeight(6);
-    line(this.pos.x, this.pos.y  * this.r, this.pos.x + this.vel.x * 2, this.pos.y + this.vel.y * 2);
+    point(this.pos.x, this.pos.y);
     pop();
   }
 
@@ -64,6 +69,7 @@ function Laser(spos, angle, a, b, c) {
       return false;
     }
   }
+
 
   this.offscreen = function() {
     if (this.pos.x > width || this.pos.x < 0) {
@@ -81,15 +87,16 @@ function Laser(spos, angle, a, b, c) {
 
 function Attack() {
    if (spaceHeld   && firingDelay <= 0) {
-    lasers.push(new Laser(player.pos, player.heading, 100, 100, 200));
+    lasers.push(new Laser(player.pos, player.heading, 100, 100, 200, 'SIDERIGHT'));
+    lasers.push(new Laser(player.pos, player.heading, 100, 100, 200, 'SIDELEFT'));
     // lasers.push(new Laser(player.pos, player.heading + 0.2, 100, 100, 100));
     // pewpew.play();
     // pewpew.amp(0.2);
     firingDelay = cooldown_fire;
 
-    for (var i = 0; i < 3; i++) {
-      particles.push(new Particle(createVector(player.pos.x + cos(player.heading) * player.r, player.pos.y + sin(player.heading) * player.r), player.heading + random(-PI / 2, PI / 2), 100, 100, 200));
-    }
+    // for (var i = 0; i < 3; i++) {
+    //   particles.push(new Particle(createVector(player.pos.x + cos(player.heading) * player.r, player.pos.y + sin(player.heading) * player.r), player.heading + random(-PI / 2, PI / 2), 100, 100, 200));
+    // }
 } 
 
         

@@ -42,7 +42,7 @@ function setup() {
     bgstars2.push(new bgStars2());
   
   }
-      for (var i = 0; i < 50; i++) {
+      for (var i = 0; i < 30; i++) {
     rocks.push(new Rocks());
 
   }
