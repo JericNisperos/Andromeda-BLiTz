@@ -72,7 +72,6 @@ function keyReleased() {
 
 function mousePressed() {
   spaceHeld = true;
-  console.log(spaceHeld);
 
 
 }

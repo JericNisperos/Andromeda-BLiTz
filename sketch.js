@@ -11,7 +11,7 @@ var bgstars = [];
 var bgstars1 = [];
 var bgstars2 = [];
 var bg;
-
+var parallax = false;
 
 
 

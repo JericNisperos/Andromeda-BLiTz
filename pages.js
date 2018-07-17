@@ -1,6 +1,7 @@
  function Pages() {
+  if(parallax) {
   TwinklebgStars();
- 
+ }
 
  if (page == 0) {
     push();

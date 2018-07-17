@@ -106,7 +106,6 @@ function Attack() {
    if (spaceHeld   && firingDelay <= 0) {
     lasers.push(new Laser(player.pos, player.heading - 0.2, 100, 100, 100));
     lasers.push(new Laser(player.pos, player.heading + 0.2, 100, 100, 100));
-    console.log("test");
     firingDelay = cooldown_fire;
 
     for (var i = 0; i < 3; i++) {
