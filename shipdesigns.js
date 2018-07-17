@@ -12,8 +12,11 @@ function Ship1() {
   //   vertex(15, 15);
   //   endShape();
   //   pop();
-
-	image(ship1img, 0, 0);
+  push();
+  	translate(player.pos.x, player.pos.y);
+  rotate(player.heading + PI / 2);
+	image(ship1img, 0, 0, ship1img.width/2, ship1img.height/2);
+	pop();
     // push();
     // stroke(0);
     // strokeWeight(1);
