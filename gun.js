@@ -84,6 +84,7 @@ function Attack() {
     lasers.push(new Laser(player.pos, player.heading - 0.2, 100, 100, 100));
     lasers.push(new Laser(player.pos, player.heading + 0.2, 100, 100, 100));
     pewpew.play();
+    pewpew.amp(0.2);
     console.log("test");
     firingDelay = cooldown_fire;
 
