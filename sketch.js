@@ -12,7 +12,7 @@ var bgstars = [];
 var bgstars1 = [];
 var bgstars2 = [];
 var bg;
-var parallax = false;
+var parallax = true;
 var pewpew;
 var ship1img;
 var life = 100;
