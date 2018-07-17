@@ -15,8 +15,7 @@ var parallax = true;
 var pewpew;
 var ship1img;
 function preload() {
-  pewpew = loadSound('img/pewpew.wav');
-  ship1img = loadImage('img/ship1.png');
+  // pewpew = loadSound('img/pewpew.wav');
 }
 function setup() {
   

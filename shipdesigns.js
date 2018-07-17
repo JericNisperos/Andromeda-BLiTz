@@ -1,22 +1,18 @@
 function Ship1() {
-	 // push();
-  //   rectMode(CENTER);
-  //   noStroke();
-  //   translate(player.pos.x, player.pos.y);
-  //   rotate(player.heading + PI / 2);
-  //   fill(100, 250, 100);
-  //   beginShape();
-  //   vertex(0, 10);
-  //   vertex(-15, 15);
-  //   vertex(0, -15);
-  //   vertex(15, 15);
-  //   endShape();
-  //   pop();
-  push();
-  	translate(player.pos.x, player.pos.y);
-  rotate(player.heading + PI / 2);
-	image(ship1img, 0, 0, ship1img.width/2, ship1img.height/2);
-	pop();
+	 push();
+    rectMode(CENTER);
+    noStroke();
+    translate(player.pos.x, player.pos.y);
+    rotate(player.heading + PI / 2);
+    fill(100, 250, 100);
+    beginShape();
+    vertex(0, 10);
+    vertex(-15, 15);
+    vertex(0, -15);
+    vertex(15, 15);
+    endShape();
+    pop();
+ 
     // push();
     // stroke(0);
     // strokeWeight(1);
