@@ -13,8 +13,11 @@ this.speed = 0.3;
 this.posx = 20;
 this.posy = 0;
 this.render = function() {
+  if (shiptype == 0) {
     Ship1();
-
+} else if(shiptype == 1) {
+    Ship2();
+}
 
 
 }
@@ -112,16 +115,3 @@ this.hits = function(rocks) {
 
 
 
-function Attack() {
-   if (spaceHeld   && firingDelay <= 0) {
-    lasers.push(new Laser(player.pos, player.heading - 0.2, 100, 100, 100));
-    lasers.push(new Laser(player.pos, player.heading + 0.2, 100, 100, 100));
-    firingDelay = cooldown_fire;
-
-    for (var i = 0; i < 3; i++) {
-      particles.push(new Particle(createVector(player.pos.x + cos(player.heading) * player.r, player.pos.y + sin(player.heading) * player.r), player.heading + random(-PI / 2, PI / 2), 100, 200, 100));
-    }
-} 
-  
-
-}

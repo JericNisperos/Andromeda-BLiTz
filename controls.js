@@ -54,6 +54,13 @@ function keyPressed() {
   }
 }
 
+  if (key == '1') {
+    shiptype++;
+    if (shiptype >= 2) {
+    shiptype = 0;
+  }
+}
+
     if (key == 'M') {
       rocks.splice(0, rocks.length);
 }

@@ -2,9 +2,12 @@ var canvas;
 var player;
 var lasers = [];
 var particles = [];
+var minilasers = [];
+var flames = [];
 var rocks = [];
 var spaceHeld = false;
-cooldown_fire = 5;
+cooldown_fire = 10;
+var shiptype = 1;
 var firingDelay = 0;
 var page = 0;
 var paused = false;
@@ -12,12 +15,16 @@ var bgstars = [];
 var bgstars1 = [];
 var bgstars2 = [];
 var bg;
-var parallax = true;
+var parallax = false;
 var pewpew;
 var ship1img;
 var life = 100;
 var score = 100;
 
+
+//EDITORS
+var flamecount = 3;
+var cooldown_fire = 10;
   // <script language="javascript" type="text/javascript" src="lib/p5.play.js"></script>
   // <script language="javascript" type="text/javascript" src="lib/p5.sound.js"></script>
 function preload() {
@@ -32,8 +39,8 @@ function setup() {
 
   player = new Player();
 
-  for (var i = 0; i < 100; i++) {bgstars.push(new bgStars());}
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 50; i++) {bgstars.push(new bgStars());}
+  for (var i = 0; i < 75; i++) {
     bgstars1.push(new bgStars1());
   
   }
