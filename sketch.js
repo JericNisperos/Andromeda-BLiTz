@@ -19,11 +19,13 @@ var parallax = false;
 var pewpew;
 var ship1img;
 var life = 100;
-var score = 100;
-
-
+var score;
+var xmap;
+var VioOrbs;
+var abced;
+var level = 0;
 //EDITORS
-var flamecount = 3;
+var flamecount = 1;
 var cooldown_fire = 10;
   // <script language="javascript" type="text/javascript" src="lib/p5.play.js"></script>
   // <script language="javascript" type="text/javascript" src="lib/p5.sound.js"></script>
@@ -31,8 +33,9 @@ function preload() {
   // pewpew = loadSound('img/pewpew.wav');
 }
 function setup() {
-  
-  
+  score = 0;
+  document.cookie = score;
+  console.log(document.cookie);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('sketch-holder');
   background(0);

@@ -10,7 +10,7 @@ function Rocks(pos, r) {
     this.r = random(50, 60);
   }
 
-
+  this.life = 1;
   this.vel = p5.Vector.random2D();
   this.total = floor(random(5, 15));
   this.offset = [];
@@ -21,11 +21,12 @@ function Rocks(pos, r) {
   this.update = function() {
     this.pos.add(this.vel);
   }
-  var rcolor = random(255);
+  var rcolor = random(100, 250);
   this.render = function() {
     push();
-    stroke(255);
-    fill(255);
+    // stroke(255);
+    noStroke();
+    fill(rcolor);
     translate(this.pos.x, this.pos.y);
     //ellipse(0, 0, this.r * 2);
     beginShape();
@@ -99,5 +100,43 @@ function RockChecker() {
 }
 
   }
+
+
+  
 }
 
+
+
+
+function Level() {
+  if (rocks.length <= 0) {
+    level++;
+
+    if (level == 1) {
+        var pos = createVector(0, 0);
+            for (var i = 0; i < 50; i++) {
+            rocks.push(new Rocks(pos));
+            console.log(level);
+}
+
+  } else if (level == 2) {
+        var pos = createVector(0, width);
+            for (var i = 0; i < 50; i++) {
+            rocks.push(new Rocks(pos));
+            console.log(level);
+
+  }
+  }
+    // } else if (RocksLevel == 2) {
+    //     var pos = createVector(0, width);
+    //         for (var i = 0; i < 50; i++) {
+    //         rocks.push(new Rocks(pos));
+    //         console.log(rockslevel);
+    // }
+
+  }
+
+
+
+}
+    

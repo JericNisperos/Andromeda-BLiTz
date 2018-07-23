@@ -12,9 +12,11 @@ function LaserChecker() {
      else {
       for (var j = rocks.length - 1; j >= 0; j--) {
         if (lasers[i].hits(rocks[j])) {
+          // if (rocks[j].life <= 0) {
           if (life >= 0) {
           score += random(100);
         }
+        
           // for (var k = 0; k < 3; k++) {
           //   particleskill.push(new ParticleKill(lasers[i].pos, lasers[i].angle + PI + random(-PI / 2, PI / 2), 255, 255, 255));
           // }
@@ -25,7 +27,11 @@ function LaserChecker() {
           rocks.splice(j, 1);
           lasers.splice(i, 1);
           break;
-        }
+        // } else {rocks[j].life-=player.damage;
+        //   lasers.splice(i, 1);
+        // }
+      }
+        
       }
     }
 
@@ -269,8 +275,9 @@ function Flame(spos, angle, h) {
 function Attack() {
    if (spaceHeld   && firingDelay <= 0) {
     if (shiptype == 0) {
-    lasers.push(new Laser(player.pos, player.heading, 100, 100, 200, 'RIGHT'));
-    lasers.push(new Laser(player.pos, player.heading, 100, 100, 200, 'LEFT'));
+    lasers.push(new Laser(player.pos, player.heading - 0.2, 100, 100, 200, 'RIGHT'));
+    lasers.push(new Laser(player.pos, player.heading + 0.2, 100, 100, 200, 'LEFT'));
+    lasers.push(new Laser(player.pos, player.heading, 100, 100, 200, 'CENTER'));
     firingDelay = cooldown_fire;
 
 }   else if(shiptype == 1) {

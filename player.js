@@ -12,10 +12,13 @@ this.rotation = 0;
 this.speed = 0.3;
 this.posx = 20;
 this.posy = 0;
+this.damage = 0;
 this.render = function() {
   if (shiptype == 0) {
+    this.damage = 2;
     Ship1();
 } else if(shiptype == 1) {
+  this.damage = 1;
     Ship2();
 }
 
